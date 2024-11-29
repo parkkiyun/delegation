@@ -61,7 +61,7 @@ def image_to_base64(image):
 with col2:
     # form_config에서 title 가져오기
     title_text = form_config.get("title", "학업성적관리위원회") + " 위임장"
-    st.title(title_text, anchor=False)
+    st.markdown(f"<h1 style='text-align: center;'>{title_text}</h1>", unsafe_allow_html=True)
     
     # 로고와 서브타이틀을 한 줄에 표시 (비율 조정)
     subcol1, subcol2, subcol3 = st.columns([2, 3, 1])
