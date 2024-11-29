@@ -3,9 +3,6 @@ import json
 import os
 import pyperclip
 
-# 페이지 설정
-st.set_page_config(page_title="선생님 페이지", page_icon="👨‍🏫")
-
 # 초기 비밀번호 설정
 PASSWORD = "teacher123"
 
@@ -19,7 +16,7 @@ def show_login():
     col1, col2, col3 = st.columns([1, 2, 1])
     
     with col2:
-        st.markdown("<h1 style='text-align: center;'>선생님 페이지</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'>업무 페이지</h1>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center;'>접근하려면 비밀번호를 입력하세요.</p>", unsafe_allow_html=True)
         
         # 비밀번호 입력 필드
@@ -29,7 +26,7 @@ def show_login():
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
             login_button = st.button("로그인")
-        
+
         if login_button:
             if password == PASSWORD:
                 st.session_state.authenticated = True
@@ -37,10 +34,10 @@ def show_login():
                 st.rerun()
             else:
                 st.error("비밀번호가 올바르지 않습니다.")
-
+    
 def show_teacher_page():
     """선생님 페이지 메인"""
-    st.markdown("<h1 style='text-align: center;'>선생님 페이지</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>업무 페이지</h1>", unsafe_allow_html=True)
     st.write("위원회를 추가하고 학부모용 링크를 생성할 수 있습니다.")
 
     # 로그아웃 버튼을 오른쪽 상단에 배치

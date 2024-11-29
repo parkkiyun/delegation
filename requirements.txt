@@ -3,3 +3,6 @@ Pillow
 numpy
 reportlab
 streamlit-drawable-canvas==0.9.3
+pandas
+python-docx
+openpyxl
