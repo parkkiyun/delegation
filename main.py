@@ -74,9 +74,9 @@ with col2:
             unsafe_allow_html=True
         )
     with subcol2:
-        # 왼쪽 여백을 줄여서 로고와 가깝게 배치
+        # 가운데 정렬로 서브타이틀 표시
         st.markdown(
-            '<h3 style="margin-top: 5px; margin-left: -14px;">온양한올고등학교</h3>', 
+            '<h3 style="text-align: center; margin-top: 5px;">온양한올고등학교</h3>', 
             unsafe_allow_html=True
         )
 
