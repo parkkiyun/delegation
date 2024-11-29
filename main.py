@@ -32,10 +32,14 @@ resources.validate_resources()
 query_params = st.query_params
 user_type = query_params.get("user_type", ["parent"])[0]  # 기본값: 학부모 페이지
 
+# --- 분기 처리 ---
 if user_type == "teacher":
     # --- 선생님 페이지 호출 ---
     import teacher_page
-    teacher_page.render()  # 선생님 페이지의 `render` 함수 호출
+
+    # teacher_page.py의 render 함수 실행
+    teacher_page.render()
+
 else:
     # --- 학부모 페이지 ---
     # JSON 파일 로드
@@ -97,13 +101,13 @@ else:
     with tabs[2]:
         application_preview.render()
 
-# 푸터 추가
-st.markdown("---")  # 구분선
-st.markdown(
-    """
-    <div style='text-align: center; color: #666666; padding: 10px;'>
-    프로그램 문의: <a href='mailto:kiyun0515@naver.com'>kiyun0515@naver.com</a>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    # 푸터 추가
+    st.markdown("---")  # 구분선
+    st.markdown(
+        """
+        <div style='text-align: center; color: #666666; padding: 10px;'>
+        프로그램 문의: <a href='mailto:kiyun0515@naver.com'>kiyun0515@naver.com</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
