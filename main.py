@@ -32,16 +32,21 @@ resources.validate_resources()
 query_params = st.query_params
 user_type = query_params.get("user_type", ["parent"])[0]  # 기본값: 학부모 페이지
 
+# --- 디버깅: Query Parameters 확인 ---
+st.write(f"현재 user_type 값: {user_type}")  # 디버깅 메시지
+
 # --- 분기 처리 ---
 if user_type == "teacher":
     # --- 선생님 페이지 호출 ---
-    import teacher_page
-
-    # teacher_page.py의 render 함수 실행
-    teacher_page.render()
-
+    st.write("선생님 페이지로 이동합니다.")  # 디버깅 메시지
+    try:
+        import teacher_page
+        teacher_page.render()
+    except Exception as e:
+        st.error(f"선생님 페이지 로드 중 오류 발생: {e}")
 else:
     # --- 학부모 페이지 ---
+    st.write("학부모 페이지로 이동합니다.")  # 디버깅 메시지
     # JSON 파일 로드
     with open("form_config.json", "r", encoding="utf-8") as f:
         form_configs = json.load(f)
